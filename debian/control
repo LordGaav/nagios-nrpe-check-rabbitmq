@@ -1,0 +1,22 @@
+Source: nagios-nrpe-check-rabbitmq
+Section: base
+Priority: optional
+Maintainer: Nick Douma <n.douma@nekoconeko.nl>
+Build-Depends: debhelper (>= 9.20120312),
+ perl
+Build-Depends-Indep: libjson-perl (>= 2.12),
+ liburi-perl (>= 1.35),
+ libwww-perl
+Standards-Version: 3.9.5
+
+Package: nagios-nrpe-check-rabbitmq
+Architecture: all
+Depends: ${misc:Depends}, ${perl:Depends},
+ libjson-perl (>= 2.12),
+ liburi-perl (>= 1.35),
+ libwww-perl,
+ libnagios-plugin-perl (>= 0.33)
+Description: RabbitMQ NRPE module
+ This package contains a set of nagios checks useful for monitoring a 
+ RabbitMQ server. They use the RabbitMQ management interface with is over 
+ HTTP and therefore have a very light profile on the nagios server.
