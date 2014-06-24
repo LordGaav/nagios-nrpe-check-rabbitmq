@@ -2,3 +2,5 @@
 !.gitignore
 !debian
 !README.md
+debian/nagios-nrpe-check-rabbitmq
+debian/nagios-nrpe-check-rabbitmq*

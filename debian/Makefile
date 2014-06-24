@@ -1,3 +1,4 @@
+PROJECT=nagios-nrpe-check-rabbitmq
 KEY=CD9C0E84
 DIST=trusty
 UPSTREAM_GITHUB=jamesc
@@ -16,10 +17,11 @@ source_no_sign:
 	dpkg-buildpackage -S -us -d
  
 upload_to_ppa:
-	dput ppa:lordgaav/$(UPSTREAM_NAME) "$(CHANGES)"
+	dput ppa:lordgaav/$(PROJECT) "$(CHANGES)"
 
 clean:
-	true
+	rm -rv debian/$(PROJECT) || true
+	rm -rv debian/$(PROJECT)* || true
 
 pbuild:
 	pbuilder-dist "$(DIST)" "$(CHANGES)"
