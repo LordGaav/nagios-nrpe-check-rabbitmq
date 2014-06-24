@@ -4,6 +4,7 @@ UPSTREAM_GITHUB=jamesc
 UPSTREAM_NAME=nagios-plugins-rabbitmq
 UPSTREAM_VERSION=1.1.0
 TARBALL=../nagios-nrpe-check-rabbitmq_$(UPSTREAM_VERSION).orig.tar.gz
+SRCROOT=$(UPSTREAM_NAME)-$(UPSTREAM_VERSION)
 
 package:
 	dpkg-buildpackage -A -us -uc
@@ -27,6 +28,5 @@ get_source_tarball:
 	wget -O "$(TARBALL)" "https://github.com/$(UPSTREAM_GITHUB)/$(UPSTREAM_NAME)/archive/$(UPSTREAM_VERSION).tar.gz"
 
 unzip_source: clean
-	tar xvf "$(TARBALL)" "$(SRCROOT)"
-	mv "$(SRCROOT)/src" .
-	rm -R "$(SRCROOT)"
+	tar xvf "$(TARBALL)"
+	mv "$(SRCROOT)" src
